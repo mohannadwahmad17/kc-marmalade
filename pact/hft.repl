@@ -1,12 +1,12 @@
 (begin-tx)
 (env-data
- { 'ns-admin-keyset: ["admin"]
- , 'ns-operate-keyset: ["operate"]
- , 'ns-genesis-keyset: { "keys": [], "pred": "="}
- , 'util-ns-admin: []
- , 'hft-admin: []
- , 'ns: "user"
- , 'upgrade: false })
+ { "ns-admin-keyset": ["admin"]
+ , "ns-operate-keyset": ["operate"]
+ , "ns-genesis-keyset": { "keys": [], "pred": "="}
+ , "util-ns-admin": []
+ , "hft-admin": []
+ , "ns": "user"
+ , "upgrade": false })
 (load "root/fungible-v2.pact")
 (load "root/ns.pact")
 (load "fungible-util.pact")
@@ -77,3 +77,9 @@
 
 
 (commit-tx)
+
+(begin-tx)
+(use user.hft)
+(view-tokens)
+(view-ledger)
+(view-supplies)

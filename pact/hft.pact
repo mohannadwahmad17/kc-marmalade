@@ -67,6 +67,10 @@
     )
 
   (deftable ledger:{entry})
+  (defun view-ledger-keys ()
+    (keys ledger))
+  (defun view-ledger ()
+    (map (read ledger) (keys ledger)))
 
   (use fungible-util)
 
@@ -78,12 +82,21 @@
   )
 
   (deftable tokens:{token})
+  (defun view-tokens-keys ()
+    (keys tokens))
+  (defun view-tokens ()
+    (map (read tokens) (keys tokens)))
 
   (defschema supply
+    token:string
     supply:decimal
     )
 
   (deftable supplies:{supply})
+  (defun view-supplies-keys ()
+    (keys supplies))
+  (defun view-supplies ()
+    (map (read supplies) (keys supplies)))
 
   (defcap ISSUE (token:string)
     (enforce-guard (at 'guard (read tokens token)))
@@ -309,7 +322,9 @@
       (with-default-read supplies token
         { 'supply: 0.0 }
         { 'supply := s }
-        (write supplies token {'supply: (+ s amount)}))
+        (write supplies token
+          {'token: token
+          ,'supply: (+ s amount)}))
     )
 
   (defun enforce-unit:bool (token:string amount:decimal)
@@ -341,6 +356,7 @@
   (defun get-tokens ()
     "Get all token identifiers"
     (keys tokens))
+
 )
 
 (if (read-msg 'upgrade)
