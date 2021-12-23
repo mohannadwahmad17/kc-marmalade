@@ -1,0 +1,15 @@
+codeFile: ../../util/fungible-util.pact
+signers:
+  - public: f244d1b6873445e4e07dff0558e0282e278747f251dede8ed4b5f06cca3290f5
+  - public: 182d8b42661bc5aed904738734e520a1cc2323377aa2004dc7931125d2808fa1
+data:
+  ns: "util"
+  upgrade: false
+networkId: mainnet01
+nonce: "install util.fungible-util"
+publicMeta:
+  chainId: "0"
+  sender: "f244d1b6873445e4e07dff0558e0282e278747f251dede8ed4b5f06cca3290f5"
+  gasLimit: 15000
+  gasPrice: 0.0000001
+  ttl: 600

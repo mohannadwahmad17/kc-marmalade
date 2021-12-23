@@ -21,9 +21,7 @@
 
 (begin-tx)
 (env-data
- { 'marmalade-admin: ["marmalade-admin"]
- , 'marmalade-ns-user: ["marmalade-admin"]
- , 'marmalade-ns-admin: ["marmalade-admin"]
+ { 'marmalade-ns-admin: ["marmalade-admin"]
  , 'ns: "marmalade"
  , 'upgrade: false })
  (env-sigs [
@@ -138,7 +136,7 @@
 
 (expect-failure
   "enforce-init is called directly"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (marmalade.guard-token-policy.enforce-init {
     "id": "project-0",
     "supply": 0.0,
@@ -148,7 +146,7 @@
 
 (expect-failure
   "enforce-init is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (create-token "project-0"
     12
     (create-manifest (uri "text" "project-0-uri") [])
@@ -157,7 +155,7 @@
 
 (expect-failure
   "enforce-mint is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.mint
   {
     "id": "project-0",
@@ -169,7 +167,7 @@
 
 (expect-failure
   "enforce-burn is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.burn
   {
     "id": "project-0",
@@ -181,7 +179,7 @@
 
 (expect-failure
   "enforce-offer is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.offer
   {
     "id": "project-0",
@@ -193,7 +191,7 @@
 
 (expect-failure
   "enforce-buy is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.buy
   {
     "id": "project-0",
@@ -205,7 +203,7 @@
 
 (expect-failure
   "enforce-transfer is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.enforce-transfer-policy
   {
     "id": "project-0",
@@ -217,7 +215,7 @@
 
 (expect-failure
   "enforce-crosschain is called from an external ledger"
-  "marmalade-admin"
+  "marmalade-ns-admin"
   (test-ledger.transfer-crosschain
   {
     "id": "project-0",

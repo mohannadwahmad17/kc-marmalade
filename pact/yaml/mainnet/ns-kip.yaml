@@ -1,0 +1,20 @@
+codeFile: ../../ns-kip.pact
+signers:
+  - public: f244d1b6873445e4e07dff0558e0282e278747f251dede8ed4b5f06cca3290f5
+  - public: 182d8b42661bc5aed904738734e520a1cc2323377aa2004dc7931125d2808fa1
+data:
+  ns: "kip"
+  kip-ns-admin:
+    keys:
+      - d02720fd7e588f64ee97d6bb8aa1cd3510a655ec654cb92c969a3c1a09bb57e5
+      - f244d1b6873445e4e07dff0558e0282e278747f251dede8ed4b5f06cca3290f5
+      - 182d8b42661bc5aed904738734e520a1cc2323377aa2004dc7931125d2808fa1
+    pred: keys-2
+networkId: mainnet01
+nonce: install namespace kip
+publicMeta:
+  chainId: "0"
+  sender: "dfb16b13e4032a6878fd98506b22cb0d6e5932c541e656b7ee5d69d72e6eb76e"
+  gasLimit: 5000
+  gasPrice: 0.0000001
+  ttl: 600

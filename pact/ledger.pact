@@ -35,7 +35,7 @@
   ;;
 
   (defcap GOVERNANCE ()
-    (enforce-guard (keyset-ref-guard 'marmalade-admin)))
+    (enforce-guard (keyset-ref-guard 'marmalade-ns-admin)))
 
   ;;
   ;; poly-fungible-v2 caps
@@ -109,7 +109,7 @@
     (compose-capability (DEBIT id account))
     (compose-capability (UPDATE_SUPPLY))
   )
-  
+
   (defun ledger-guard:guard ()
     @doc "Ledger module guard for policies to be able to validate access to policy operations."
     (create-module-guard "ledger-guard")
